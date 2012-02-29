@@ -23,8 +23,8 @@ if(typeof(BigNumber) == "undefined") {
 	head.appendChild(BigNumberScript);
 }
 
-NBT = function(nbtfile) {
-	this.binary = new BinaryParser(true);
+NBT = function(nbtfile, littleEndian) {
+	this.binary = new BinaryParser(!(littleEndian));
 	if(nbtfile) this.loadFile(nbtfile);
 }; with({nbtproto: NBT.prototype}) {
 	nbtproto.root = new Array();
